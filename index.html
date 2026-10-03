@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="KaffeKult Neuwied – Kaffee, Genuss und entspannte Momente mitten in Neuwied.">
+  <meta name="description" content="KaffeKult in Neuwied – Kaffee, Kuchen und entspannte Momente.">
   <meta name="theme-color" content="#f5f0e8">
   <title>KaffeKult – Kaffee &amp; Genuss in Neuwied</title>
 
@@ -45,8 +45,9 @@
       text-decoration: none;
     }
 
-    button {
-      font: inherit;
+    img {
+      display: block;
+      max-width: 100%;
     }
 
     .announcement {
@@ -66,7 +67,6 @@
       justify-content: space-between;
       gap: 24px;
       padding: 20px 7%;
-      background: var(--cream);
     }
 
     .logo {
@@ -83,20 +83,17 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 28px;
       font-size: 0.9rem;
     }
 
-    .nav-links a {
-      transition: color 180ms ease;
-    }
-
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .text-link:hover {
       color: var(--caramel);
     }
 
-    .nav-cta,
-    .button {
+    .button,
+    .nav-cta {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -110,8 +107,8 @@
       transition: transform 180ms ease, background 180ms ease;
     }
 
-    .nav-cta:hover,
-    .button:hover {
+    .button:hover,
+    .nav-cta:hover {
       transform: translateY(-2px);
       background: var(--coffee);
     }
@@ -131,10 +128,10 @@
     .hero {
       display: grid;
       grid-template-columns: 1.02fr 0.98fr;
-      min-height: 610px;
-      padding: 28px 7% 72px;
-      gap: 5%;
+      min-height: 590px;
       align-items: center;
+      gap: 5%;
+      padding: 35px 7% 75px;
     }
 
     .eyebrow {
@@ -148,13 +145,6 @@
 
     h1,
     h2,
-    h3,
-    p {
-      margin-top: 0;
-    }
-
-    h1,
-    h2,
     h3 {
       font-family: var(--serif);
       font-weight: 600;
@@ -163,7 +153,7 @@
 
     h1 {
       max-width: 650px;
-      margin-bottom: 22px;
+      margin: 0 0 22px;
       font-size: clamp(3rem, 6vw, 5.7rem);
       letter-spacing: -0.055em;
     }
@@ -175,7 +165,7 @@
 
     .hero-copy {
       max-width: 510px;
-      margin-bottom: 28px;
+      margin: 0 0 28px;
       color: var(--muted);
       font-size: 1.05rem;
     }
@@ -194,93 +184,52 @@
       font-weight: 600;
     }
 
-    .hero-visual {
-      position: relative;
-      min-height: 485px;
-      overflow: hidden;
-      border-radius: 48% 48% 10px 10px;
-      background:
-        radial-gradient(ellipse at 52% 38%, rgba(255, 253, 249, 0.86) 0 12%, transparent 12.5%),
-        radial-gradient(ellipse at 52% 48%, #bd8b5b 0 19%, transparent 19.5%),
-        linear-gradient(145deg, #ded0bb, #a97e5c 55%, #664632);
-    }
-
-    .hero-visual::before {
-      position: absolute;
-      top: 13%;
-      left: 50%;
-      width: 54%;
-      height: 44%;
-      border: 16px solid rgba(255, 253, 249, 0.74);
-      border-radius: 50%;
-      background: rgba(56, 37, 29, 0.14);
-      content: "";
-      transform: translateX(-50%) rotate(-12deg);
-    }
-
-    .hero-visual::after {
-      position: absolute;
-      right: -4%;
-      bottom: -16%;
-      left: -4%;
-      height: 42%;
-      border-radius: 50% 50% 0 0;
-      background: rgba(245, 240, 232, 0.88);
-      content: "";
-    }
-
-    .visual-label {
-      position: absolute;
-      z-index: 1;
-      right: 18px;
-      bottom: 18px;
-      left: 18px;
-      padding: 15px 18px;
-      border: 1px solid rgba(255, 255, 255, 0.45);
-      border-radius: 12px;
-      background: rgba(255, 253, 249, 0.82);
-      color: var(--brown);
-      font-size: 0.82rem;
-      text-align: center;
-      backdrop-filter: blur(8px);
+    .hero-image {
+      width: 100%;
+      height: 470px;
+      object-fit: cover;
+      border-radius: 48% 48% 12px 12px;
     }
 
     .intro-strip {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 38px;
+      gap: 14px 38px;
       padding: 22px 7%;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       color: var(--coffee);
       font-family: var(--serif);
-      font-size: 1.06rem;
       text-align: center;
     }
 
     .intro-strip span::before {
-      margin-right: 12px;
+      margin-right: 10px;
       color: var(--caramel);
       content: "✳";
     }
 
     .section {
-      padding: 100px 7%;
+      padding: 95px 7%;
     }
 
     .section-heading {
       max-width: 650px;
-      margin: 0 auto 48px;
+      margin: 0 auto 45px;
       text-align: center;
     }
 
-    .section-heading h2 {
-      margin-bottom: 16px;
+    .section-heading h2,
+    .about-copy h2,
+    .visit h2,
+    .contact-banner h2 {
+      margin: 0 0 16px;
       font-size: clamp(2.35rem, 4.5vw, 3.8rem);
       letter-spacing: -0.04em;
     }
 
-    .section-heading p {
+    .section-heading > p:last-child {
       color: var(--muted);
     }
 
@@ -295,46 +244,44 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       background: var(--white);
-      transition: transform 200ms ease, box-shadow 200ms ease;
     }
 
-    .card:hover {
-      box-shadow: 0 18px 40px rgba(56, 37, 29, 0.1);
-      transform: translateY(-5px);
-    }
-
-    .card-image {
-      display: grid;
-      min-height: 235px;
-      place-items: center;
-      background: linear-gradient(135deg, #e7d8c5, #c59c75);
-      color: rgba(56, 37, 29, 0.7);
-      font-size: 0.82rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .card:nth-child(2) .card-image {
-      background: linear-gradient(135deg, #d9c9ad, #8b6346);
-    }
-
-    .card:nth-child(3) .card-image {
-      background: linear-gradient(135deg, #eee0cb, #b78359);
+    .card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
     }
 
     .card-content {
-      padding: 24px;
+      padding: 23px;
     }
 
     .card-content h3 {
-      margin-bottom: 9px;
+      margin: 0 0 9px;
       font-size: 1.55rem;
     }
 
     .card-content p {
-      margin-bottom: 0;
+      margin: 0;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.93rem;
+    }
+
+    .gallery {
+      padding-top: 35px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      border-radius: 14px;
     }
 
     .about {
@@ -345,21 +292,14 @@
       background: #eae1d4;
     }
 
-    .about-visual {
-      min-height: 430px;
+    .about-image {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
       border-radius: 12px 120px 12px 12px;
-      background:
-        linear-gradient(0deg, rgba(56, 37, 29, 0.12), rgba(56, 37, 29, 0.12)),
-        linear-gradient(135deg, #c6a47d, #654631 75%);
     }
 
-    .about-copy h2 {
-      margin-bottom: 20px;
-      font-size: clamp(2.5rem, 4vw, 3.8rem);
-      letter-spacing: -0.04em;
-    }
-
-    .about-copy p {
+    .about-copy p:not(.eyebrow) {
       color: #65564c;
     }
 
@@ -370,28 +310,23 @@
     .visit {
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
-      gap: 8%;
       align-items: start;
-    }
-
-    .visit h2 {
-      margin-bottom: 18px;
-      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      gap: 8%;
     }
 
     .visit-details {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 28px;
+      gap: 26px 30px;
     }
 
     .detail {
-      padding-top: 18px;
+      padding-top: 17px;
       border-top: 1px solid var(--line);
     }
 
     .detail h3 {
-      margin-bottom: 8px;
+      margin: 0 0 8px;
       font-family: var(--sans);
       font-size: 0.83rem;
       letter-spacing: 0.1em;
@@ -399,28 +334,43 @@
     }
 
     .detail p {
-      margin-bottom: 0;
+      margin: 0;
       color: var(--muted);
     }
 
-    .map-placeholder {
-      display: grid;
-      min-height: 190px;
+    .detail a:hover,
+    .map-link a:hover {
+      color: var(--caramel);
+      text-decoration: underline;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 320px;
       margin-top: 28px;
-      place-items: center;
+      overflow: hidden;
       border-radius: 12px;
-      background:
-        linear-gradient(35deg, transparent 47%, rgba(255, 253, 249, 0.8) 48% 51%, transparent 52%),
-        linear-gradient(125deg, transparent 40%, rgba(255, 253, 249, 0.75) 41% 44%, transparent 45%),
-        #e5d9c8;
+      background: #e5d9c8;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .map-link {
+      margin: 12px 0 0;
+    }
+
+    .map-link a {
       color: var(--coffee);
-      font-size: 0.85rem;
-      text-align: center;
+      text-decoration: underline;
     }
 
     .contact-banner {
-      margin: 0 7% 80px;
-      padding: 62px 24px;
+      margin: 0 7% 75px;
+      padding: 60px 24px;
       border-radius: 16px;
       background: var(--brown);
       color: var(--white);
@@ -428,11 +378,10 @@
     }
 
     .contact-banner h2 {
-      margin-bottom: 14px;
       font-size: clamp(2.2rem, 4vw, 3.5rem);
     }
 
-    .contact-banner p {
+    .contact-banner > p:not(.eyebrow) {
       color: #e2d7ca;
     }
 
@@ -445,36 +394,27 @@
 
     .site-footer {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
-      gap: 20px;
-      padding: 26px 7%;
+      gap: 18px;
+      padding: 25px 7%;
       border-top: 1px solid var(--line);
       color: var(--muted);
-      font-size: 0.82rem;
-    }
-
-    .site-footer a:hover {
-      color: var(--brown);
+      font-size: 0.84rem;
     }
 
     .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 650ms ease, transform 650ms ease;
+      animation: appear 700ms ease both;
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
@@ -510,91 +450,111 @@
         padding: 12px 0;
       }
 
-      .nav-cta {
+      .nav-links .nav-cta {
         margin-top: 8px;
         text-align: center;
       }
 
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 58px 6% 60px;
-      }
-
-      .hero-visual {
-        min-height: 380px;
-      }
-
-      .intro-strip {
-        flex-wrap: wrap;
-        gap: 12px 22px;
-        padding: 18px 6%;
-        font-size: 0.95rem;
-      }
-
-      .section {
-        padding: 76px 6%;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-        max-width: 520px;
-        margin: auto;
-      }
-
+      .hero,
       .about,
       .visit {
         grid-template-columns: 1fr;
       }
 
-      .about-visual {
-        min-height: 300px;
+      .hero {
+        padding: 55px 6% 60px;
+      }
+
+      .hero-image {
+        height: 350px;
+      }
+
+      .section {
+        padding: 72px 6%;
+      }
+
+      .cards,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        max-width: 540px;
+        margin: 0 auto;
+      }
+
+      .gallery-grid img {
+        height: 260px;
+      }
+
+      .about-image {
+        height: 300px;
       }
 
       .contact-banner {
-        margin: 0 6% 60px;
+        margin: 0 6% 55px;
       }
 
       .site-footer {
-        flex-direction: column;
         padding: 24px 6%;
       }
     }
 
     @media (max-width: 480px) {
       .announcement {
-        font-size: 0.68rem;
+        font-size: 0.67rem;
       }
 
       h1 {
-        font-size: 3.25rem;
-      }
-
-      .hero-visual {
-        min-height: 310px;
-      }
-
-      .visit-details {
-        grid-template-columns: 1fr;
+        font-size: 3.15rem;
       }
 
       .hero-actions {
         align-items: flex-start;
         flex-direction: column;
       }
+
+      .visit-details {
+        grid-template-columns: 1fr;
+      }
+
+      .map-container {
+        height: 270px;
+      }
+
+      .site-footer {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="announcement">GUTER KAFFEE. GUTE ZEIT. MITTEN IN NEUWIED.</div>
+  <div class="announcement">
+    GUTER KAFFEE. GUTE ZEIT. MITTEN IN NEUWIED.
+  </div>
 
   <header class="site-header">
-    <a class="logo" href="#start" aria-label="KaffeKult Startseite">Kaffe<span>Kult</span></a>
+    <a class="logo" href="#start" aria-label="KaffeKult Startseite">
+      Kaffee<span>Kult</span>
+    </a>
 
-    <button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+    <button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
+      ☰
+    </button>
 
     <nav class="nav-links" aria-label="Hauptnavigation">
       <a href="#angebot">Unser Angebot</a>
+      <a href="#galerie">Galerie</a>
       <a href="#ueber-uns">Über uns</a>
       <a href="#besuch">Besuch uns</a>
       <a class="nav-cta" href="#kontakt">Kontakt</a>
@@ -603,12 +563,12 @@
 
   <main>
     <section class="hero" id="start">
-      <div class="hero-text reveal">
+      <div class="reveal">
         <p class="eyebrow">Kaffeekultur in Neuwied</p>
         <h1>Eine gute Tasse. <em>Ein guter Moment.</em></h1>
         <p class="hero-copy">
-          Willkommen bei KaffeKult – deinem gemütlichen Ort für aromatischen Kaffee,
-          kleine Genussmomente und eine entspannte Pause vom Alltag.
+          Willkommen bei KaffeKult – deinem gemütlichen Ort für aromatischen
+          Kaffee, kleine Genussmomente und eine entspannte Pause vom Alltag.
         </p>
         <div class="hero-actions">
           <a class="button" href="#angebot">Unser Angebot entdecken</a>
@@ -616,12 +576,13 @@
         </div>
       </div>
 
-      <div class="hero-visual reveal" role="img" aria-label="Platzhalter für ein Kaffeefoto">
-        <div class="visual-label">Hier später dein eigenes KaffeKult-Foto einsetzen</div>
-      </div>
+      <img
+        class="hero-image reveal"
+        src="https://img02.restaurantguru.com/cb50-Cafe-KaffeeKult-GmbH-meals.jpg"
+        alt="Einblick bei KaffeeKult Neuwied">
     </section>
 
-    <div class="intro-strip" aria-label="Was KaffeKult ausmacht">
+    <div class="intro-strip">
       <span>Mit Liebe zubereitet</span>
       <span>Entspannt genießen</span>
       <span>Zu Hause in Neuwied</span>
@@ -632,57 +593,68 @@
         <p class="eyebrow">Klein oder groß, heiß oder kalt</p>
         <h2>Dein Genussmoment wartet.</h2>
         <p>
-          Ob für den schnellen Kaffee zwischendurch oder eine gemütliche Auszeit:
-          Bei KaffeKult soll jeder Besuch ein bisschen besonders sein.
+          Ob für den Kaffee zwischendurch oder eine gemütliche Auszeit:
+          Bei KaffeKult soll jeder Besuch besonders sein.
         </p>
       </div>
 
       <div class="cards">
         <article class="card reveal">
-          <div class="card-image" role="img" aria-label="Platzhalter für Kaffeefoto">Kaffeefoto folgt</div>
+          <img
+            src="https://img02.restaurantguru.com/c460-Cafe-KaffeeKult-GmbH-beverage.jpg"
+            alt="Heißes Getränk bei KaffeeKult">
           <div class="card-content">
             <h3>Kaffee mit Charakter</h3>
-            <p>Eine gute Bohne, sorgfältig zubereitet und am liebsten in guter Gesellschaft genossen.</p>
+            <p>Eine gute Tasse Kaffee, sorgfältig zubereitet und in guter Gesellschaft genossen.</p>
           </div>
         </article>
 
         <article class="card reveal">
-          <div class="card-image" role="img" aria-label="Platzhalter für Kuchenfoto">Kuchenfoto folgt</div>
+          <img
+            src="https://img02.restaurantguru.com/cdea-Cafe-KaffeeKult-GmbH-food.jpg"
+            alt="Essen bei KaffeeKult">
           <div class="card-content">
-            <h3>Etwas Süßes dazu</h3>
+            <h3>Etwas Leckeres dazu</h3>
             <p>Der passende Begleiter für deine Kaffeepause – lass dich vor Ort überraschen.</p>
           </div>
         </article>
 
         <article class="card reveal">
-          <div class="card-image" role="img" aria-label="Platzhalter für Caféfoto">Caféfoto folgt</div>
+          <img
+            src="https://img02.restaurantguru.com/c8de-Cafe-KaffeeKult-GmbH-exterior.jpg"
+            alt="Außenansicht von KaffeeKult">
           <div class="card-content">
             <h3>Ein Platz zum Bleiben</h3>
-            <p>Atme kurz durch, triff Freunde oder mach es dir mit deinem Lieblingsgetränk gemütlich.</p>
+            <p>Triff Freunde, atme durch oder mach es dir mit deinem Lieblingsgetränk gemütlich.</p>
           </div>
         </article>
       </div>
     </section>
-<section class="section" id="galerie">
-  <div class="section-heading reveal">
-    <p class="eyebrow">Einblicke bei KaffeKult</p>
-    <h2>Kaffee, Kuchen und gemütliche Momente.</h2>
-  </div>
 
- <section class="section" id="galerie">
-  <div class="section-heading reveal">
-    <p class="eyebrow">Einblicke bei KaffeKult</p>
-    <h2>Kaffee, Kuchen und gemütliche Momente.</h2>
-  </div>
+    <section class="section gallery" id="galerie">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Einblicke bei KaffeKult</p>
+        <h2>Kaffee, Kuchen und gemütliche Momente.</h2>
+      </div>
 
-  <div class="photo-gallery">
-    <img src="bilder/kaffee.jpg" alt="Kaffee bei KaffeKult">
-    <img src="bilder/kuchen.jpg" alt="Kuchen bei KaffeKult">
-    <img src="bilder/cafe.jpg" alt="Einblick ins Café KaffeKult">
-  </div>
-</section>
+      <div class="gallery-grid">
+        <img
+          src="https://img02.restaurantguru.com/cb50-Cafe-KaffeeKult-GmbH-meals.jpg"
+          alt="Einblick bei KaffeeKult">
+        <img
+          src="https://img02.restaurantguru.com/c08f-Restaurant-KaffeeKult-GmbH-food.jpg"
+          alt="Crème brûlée bei KaffeeKult">
+        <img
+          src="https://img02.restaurantguru.com/c460-Cafe-KaffeeKult-GmbH-beverage.jpg"
+          alt="Heißes Getränk bei KaffeeKult">
+      </div>
+    </section>
+
     <section class="section about" id="ueber-uns">
-      <div class="about-visual reveal" role="img" aria-label="Platzhalter für ein Foto aus dem Café"></div>
+      <img
+        class="about-image reveal"
+        src="https://img02.restaurantguru.com/c8de-Cafe-KaffeeKult-GmbH-exterior.jpg"
+        alt="Außenansicht von KaffeeKult in Neuwied">
 
       <div class="about-copy reveal">
         <p class="eyebrow">Schön, dass du da bist</p>
@@ -691,83 +663,78 @@
           KaffeKult ist ein Ort für kleine Pausen und gute Begegnungen.
           Hier darfst du ankommen, durchatmen und den Moment genießen.
         </p>
-        <p>
-          Die Bilder und persönlichen Details ergänzen wir später, damit die Seite
-          genau zu eurem Café passt.
-        </p>
+        <p><strong>Inhaber: Khalil Mohsseni</strong></p>
         <a class="button" href="#besuch">Besuch planen</a>
-     
+      </div>
+    </section>
 
-  
-     <section class="section visit" id="besuch">
-  <div class="reveal">
-    <p class="eyebrow">Wir freuen uns auf dich</p>
-    <h2>Dein nächster Kaffee ist nicht weit.</h2>
-    <p class="hero-copy">
-      Komm vorbei und lerne KaffeKult persönlich kennen.
-    </p>
-  </div>
-
-  <div class="reveal">
-    <div class="visit-details">
-      <div class="detail">
-        <h3>Adresse</h3>
-        <p>
-          Langendorfer Straße 121<br>
-          56564 Neuwied
+    <section class="section visit" id="besuch">
+      <div class="reveal">
+        <p class="eyebrow">Wir freuen uns auf dich</p>
+        <h2>Dein nächster Kaffee ist nicht weit.</h2>
+        <p class="hero-copy">
+          Komm vorbei und lerne KaffeKult persönlich kennen.
         </p>
       </div>
 
-      <div class="detail">
-        <h3>Öffnungszeiten</h3>
-        <p>
-          Montag bis Samstag<br>
-          9:00–18:00 Uhr<br>
-          Sonntag geschlossen
+      <div class="reveal">
+        <div class="visit-details">
+          <div class="detail">
+            <h3>Adresse</h3>
+            <p>
+              Langendorfer Straße 121<br>
+              56564 Neuwied
+            </p>
+          </div>
+
+          <div class="detail">
+            <h3>Öffnungszeiten</h3>
+            <p>
+              Montag bis Samstag<br>
+              9:00–18:00 Uhr<br>
+              Sonntag geschlossen
+            </p>
+          </div>
+
+          <div class="detail">
+            <h3>Telefon</h3>
+            <p><a href="tel:+4926319272375">02631 9272375</a></p>
+          </div>
+        </div>
+
+        <div class="map-container">
+          <iframe
+            src="https://maps.google.com/maps?q=KaffeeKult%2C%20Langendorfer%20Stra%C3%9Fe%20121%2C%2056564%20Neuwied&amp;output=embed"
+            title="Karte zu KaffeKult in Neuwied"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <p class="map-link">
+          <a
+            href="https://www.google.com/maps/search/?api=1&amp;query=KaffeeKult%2C+Langendorfer+Stra%C3%9Fe+121%2C+56564+Neuwied"
+            target="_blank"
+            rel="noopener noreferrer">
+            Route in Google Maps öffnen
+          </a>
         </p>
       </div>
-
-      <div class="detail">
-        <h3>Telefon</h3>
-        <p><a href="tel:+4926319272375">02631 9272375</a></p>
-      </div>
-    </div>
-
-    <div class="map-container">
-      <iframe
-        src="https://maps.google.com/maps?q=KaffeeKult%2C%20Langendorfer%20Stra%C3%9Fe%20121%2C%2056564%20Neuwied&output=embed"
-        title="Karte zu KaffeKult in Neuwied"
-        loading="lazy"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-    <p class="map-link">
-      <a href="https://www.google.com/maps/search/?api=1&query=KaffeeKult%2C+Langendorfer+Stra%C3%9Fe+121%2C+56564+Neuwied"
-         target="_blank"
-         rel="noopener noreferrer">
-        Route in Google Maps öffnen
-      </a>
-    </p>
-  </div>
-</section>
+    </section>
 
     <section class="contact-banner reveal" id="kontakt">
       <p class="eyebrow">Deine Auszeit wartet</p>
-      <h2>Wir brühen schon mal auf.</h2>
-      <p>Wir freuen uns auf deinen Besuch bei KaffeKult Neuwied.</p>
-      <a class="button" href="#besuch">Alle Besuchsinfos</a>
+      <h2>Wir freuen uns auf deinen Besuch.</h2>
+      <p>Du erreichst KaffeKult telefonisch unter 02631 9272375.</p>
+      <a class="button" href="tel:+4926319272375">Jetzt anrufen</a>
     </section>
   </main>
 
   <footer class="site-footer">
-    <a class="logo" href="#start">Kaffe<span>Kult</span></a>
+    <a class="logo" href="#start">Kaffee<span>Kult</span></a>
     <span>© <span id="year"></span> KaffeKult Neuwied</span>
-    <div>
-      <a href="#impressum">Impressum</a>
-      &nbsp;·&nbsp;
-      <a href="#datenschutz">Datenschutz</a>
-    </div>
+    <a href="#besuch">Adresse und Öffnungszeiten</a>
   </footer>
 
   <script>
@@ -777,7 +744,10 @@
     menuButton.addEventListener("click", () => {
       const isOpen = navigation.classList.toggle("open");
       menuButton.setAttribute("aria-expanded", isOpen);
-      menuButton.setAttribute("aria-label", isOpen ? "Menü schließen" : "Menü öffnen");
+      menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Menü schließen" : "Menü öffnen"
+      );
       menuButton.textContent = isOpen ? "×" : "☰";
     });
 
@@ -791,30 +761,7 @@
     });
 
     document.querySelector("#year").textContent = new Date().getFullYear();
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll(".reveal").forEach((element) => {
-      revealObserver.observe(element);
-    });
   </script>
 </body>
 </html>
-<!doctype html>
-<html lang="de">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Meine Webseite</title>
-  <link rel="stylesheet" href="style.css">
-ojekt vor.</p>
-
-
   
