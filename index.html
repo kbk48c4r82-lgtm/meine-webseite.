@@ -4,8 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Nagelkunst Rebecca Werghemi in Bad Bergzabern – elegante Gelnägel, Nageldesign, Nail Art und Maniküre.">
-<meta name="theme-color" content="#f8f5ef">
+<meta name="theme-color" content="#f8f6f1">
+<meta name="description" content="Nagelkunst Rebecca Werghemi in Bad Bergzabern. Elegante Gelnägel, Nageldesign, Nail Art und Maniküre.">
 <title>Nagelkunst Rebecca Werghemi | Bad Bergzabern</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,13 +14,13 @@
 
 <style>
 :root {
-  --bg: #f8f5ef;
-  --white: #fffefa;
-  --ink: #30271f;
-  --muted: #756b60;
-  --gold: #b08a45;
-  --gold-light: #dfc58d;
-  --line: rgba(176,138,69,.32);
+  --ivory: #faf9f6;
+  --cream: #f3eee5;
+  --gold: #b18b4c;
+  --gold-light: #e6d2a8;
+  --dark: #30271f;
+  --muted: #766e64;
+  --glass: rgba(255,253,248,.58);
   --serif: "Playfair Display", Georgia, serif;
   --sans: "DM Sans", Arial, sans-serif;
 }
@@ -31,71 +31,104 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
   margin: 0;
-  color: var(--ink);
+  color: var(--dark);
+  background: var(--ivory);
   font-family: var(--sans);
   line-height: 1.7;
-  background-color: var(--bg);
-  background-image:
-    radial-gradient(ellipse at 12% 10%, rgba(255,255,255,.98), transparent 35%),
-    radial-gradient(ellipse at 85% 25%, rgba(255,255,255,.85), transparent 30%),
-    linear-gradient(128deg, transparent 0%, transparent 25%,
-      rgba(184,146,78,.12) 25.2%, rgba(255,255,255,.9) 25.5%,
-      transparent 26%, transparent 58%,
-      rgba(184,146,78,.15) 58.2%, rgba(255,255,255,.85) 58.6%,
-      transparent 59%),
-    linear-gradient(35deg, transparent 0%, transparent 37%,
-      rgba(176,138,69,.10) 37.2%, rgba(255,255,255,.9) 37.5%,
-      transparent 38%, transparent 76%,
-      rgba(176,138,69,.13) 76.2%, transparent 76.6%),
-    linear-gradient(155deg, transparent 0%, transparent 68%,
-      rgba(176,138,69,.10) 68.2%, rgba(255,255,255,.8) 68.5%,
-      transparent 69%);
-  background-attachment: fixed;
+  overflow-x: hidden;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 15% 15%, #fff 0%, transparent 42%),
+    radial-gradient(ellipse at 85% 75%, #fff 0%, transparent 35%),
+    linear-gradient(125deg, #faf9f6, #f0eade 50%, #fffdf9);
 }
+
+/* NATURAL-LOOKING MARBLE VEINS */
+
+.marble-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: .8;
+}
+
+.marble-bg svg {
+  width: 100%;
+  height: 100%;
+}
+
+.gold-vein {
+  fill: none;
+  stroke: url(#goldGradient);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.soft-vein {
+  fill: none;
+  stroke: #c9c0b1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* TOP BAR */
 
 .topline {
-  padding: 9px 15px;
+  padding: 8px 15px;
+  color: #f4e5c6;
   background: #30271f;
-  color: #f7e8c5;
   text-align: center;
-  font-size: .73rem;
-  letter-spacing: .16em;
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .19em;
   text-transform: uppercase;
 }
 
+/* HEADER */
+
 header {
-  position: relative;
-  z-index: 10;
+  position: sticky;
+  top: 0;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  padding: 20px 7%;
-  border-bottom: 1px solid rgba(176,138,69,.16);
-  background: rgba(255,253,248,.76);
-  backdrop-filter: blur(12px);
+  gap: 24px;
+  padding: 18px 7%;
+  background: rgba(255,253,248,.66);
+  backdrop-filter: blur(25px) saturate(160%);
+  -webkit-backdrop-filter: blur(25px) saturate(160%);
+  border-bottom: 1px solid rgba(255,255,255,.85);
+  box-shadow: 0 8px 35px rgba(75,56,32,.045);
 }
 
 .brand {
-  font: 600 1.55rem/1.15 var(--serif);
-  color: var(--ink);
+  display: inline-block;
+  color: var(--dark);
+  font: 600 1.6rem/1.1 var(--serif);
+  white-space: nowrap;
 }
 
 .brand small {
   display: block;
   margin-top: 5px;
   color: var(--gold);
-  font: 500 .65rem var(--sans);
-  letter-spacing: .19em;
+  font: 500 .62rem var(--sans);
+  letter-spacing: .2em;
   text-transform: uppercase;
 }
 
@@ -103,65 +136,90 @@ nav {
   display: flex;
   align-items: center;
   gap: 27px;
-  font-size: .88rem;
+  font-size: .86rem;
 }
 
-nav a:not(.button) {
-  transition: color .25s;
+nav a {
+  transition: color .25s ease;
 }
 
 nav a:not(.button):hover {
   color: var(--gold);
 }
 
-.button {
-  display: inline-flex;
-  min-height: 48px;
-  align-items: center;
-  justify-content: center;
-  padding: 0 24px;
-  border: 1px solid var(--gold);
-  border-radius: 50px;
-  background: linear-gradient(135deg, #c7a563, #a47c37);
-  color: white;
-  font-weight: 600;
-  font-size: .88rem;
-  letter-spacing: .02em;
-  box-shadow: 0 7px 20px rgba(176,138,69,.19);
-  transition: transform .25s, box-shadow .25s;
-}
-
-.button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(176,138,69,.3);
-}
-
 .menu {
   display: none;
   width: 44px;
   height: 44px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(177,139,76,.35);
   border-radius: 50%;
-  background: transparent;
-  color: var(--ink);
+  background: rgba(255,255,255,.5);
+  color: var(--dark);
   font-size: 1.3rem;
   cursor: pointer;
 }
+
+/* BUTTONS */
+
+.button {
+  position: relative;
+  display: inline-flex;
+  min-height: 49px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 25px;
+  border: 1px solid rgba(255,238,200,.8);
+  border-radius: 50px;
+  background: linear-gradient(130deg, #c6a66b, #a77d3d);
+  color: white;
+  font-size: .87rem;
+  font-weight: 600;
+  letter-spacing: .025em;
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.5),
+    0 8px 24px rgba(157,119,59,.2);
+  transition: transform .3s, box-shadow .3s;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.4), transparent);
+  transform: skewX(-22deg);
+  transition: left .65s;
+}
+
+.button:hover::after {
+  left: 150%;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(157,119,59,.3);
+}
+
+/* HERO */
 
 .hero {
   display: grid;
   grid-template-columns: 1.05fr .95fr;
   align-items: center;
-  gap: 6%;
-  padding: 85px 7% 105px;
+  gap: 7%;
+  min-height: 650px;
+  padding: 75px 7% 90px;
 }
 
 .eyebrow {
   margin: 0 0 17px;
   color: var(--gold);
-  font-size: .72rem;
+  font-size: .7rem;
   font-weight: 700;
-  letter-spacing: .2em;
+  letter-spacing: .22em;
   text-transform: uppercase;
 }
 
@@ -172,10 +230,9 @@ h1, h2, h3 {
 }
 
 h1 {
-  max-width: 680px;
-  margin: 0 0 23px;
-  font-size: clamp(3.2rem, 6vw, 5.7rem);
-  letter-spacing: -.045em;
+  margin: 0 0 25px;
+  font-size: clamp(3.3rem, 6.5vw, 6rem);
+  letter-spacing: -.055em;
 }
 
 h1 em {
@@ -187,8 +244,10 @@ h1 em {
   max-width: 510px;
   margin: 0 0 30px;
   color: var(--muted);
-  font-size: 1.04rem;
+  font-size: 1.03rem;
 }
+
+/* GLASS HERO IMAGE */
 
 .hero-art {
   position: relative;
@@ -196,64 +255,68 @@ h1 em {
   min-height: 490px;
   overflow: hidden;
   place-items: center;
-  border: 1px solid rgba(176,138,69,.5);
-  border-radius: 48% 48% 15px 15px;
+  border: 1px solid rgba(255,255,255,.95);
+  border-radius: 48% 48% 18px 18px;
   background:
-    linear-gradient(140deg, transparent 0 23%,
-      rgba(255,255,255,.92) 23.2%, transparent 23.8%),
-    linear-gradient(38deg, transparent 0 58%,
-      rgba(176,138,69,.5) 58.2%, rgba(255,255,255,.9) 58.6%,
-      transparent 59.2%),
-    linear-gradient(155deg, #fffefa, #eae0cd 55%, #d8c5a6);
-  box-shadow: 0 25px 65px rgba(62,46,28,.13);
-}
-
-.hero-art::before,
-.hero-art::after {
-  position: absolute;
-  width: 90px;
-  height: 160px;
-  border: 5px solid rgba(255,255,255,.9);
-  border-radius: 48%;
-  background: linear-gradient(160deg, #fffefa, #e8d8bd);
-  box-shadow: 0 15px 34px rgba(73,58,39,.16);
-  content: "";
+    linear-gradient(135deg, rgba(255,255,255,.75), rgba(241,231,210,.3)),
+    linear-gradient(145deg, #fffefa, #e9dfce 55%, #d6c19e);
+  box-shadow:
+    inset 0 1px 2px rgba(255,255,255,.95),
+    0 25px 70px rgba(67,48,24,.12);
 }
 
 .hero-art::before {
-  top: 23%;
-  left: 23%;
-  transform: rotate(-28deg);
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, transparent 25%,
+      rgba(255,255,255,.9) 25.3%,
+      transparent 26%),
+    linear-gradient(38deg, transparent 58%,
+      rgba(183,142,69,.65) 58.3%,
+      rgba(255,255,255,.8) 58.7%,
+      transparent 59.2%);
+  opacity: .7;
 }
 
 .hero-art::after {
-  right: 21%;
-  bottom: 19%;
-  transform: rotate(25deg);
+  content: "✧";
+  position: absolute;
+  top: 18%;
+  left: 45%;
+  color: rgba(255,255,255,.85);
+  font-size: 6rem;
+  text-shadow: 0 5px 30px rgba(173,133,68,.2);
 }
 
 .hero-art span {
   position: absolute;
-  right: 18px;
+  right: 20px;
   bottom: 20px;
-  left: 18px;
-  z-index: 1;
-  padding: 14px;
-  border: 1px solid rgba(176,138,69,.3);
-  border-radius: 10px;
-  background: rgba(255,254,250,.9);
+  left: 20px;
+  z-index: 2;
+  padding: 15px;
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 12px;
+  background: rgba(255,253,248,.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   text-align: center;
   font: 500 1.05rem var(--serif);
   letter-spacing: .04em;
+  box-shadow: 0 8px 25px rgba(50,38,25,.06);
 }
 
-section.content {
+/* GENERAL SECTIONS */
+
+.content {
   padding: 90px 7%;
 }
 
 .heading {
   max-width: 700px;
-  margin: 0 auto 45px;
+  margin: 0 auto 48px;
   text-align: center;
 }
 
@@ -262,8 +325,8 @@ section.content {
 .visit h2,
 .contact h2 {
   margin: 0 0 17px;
-  font-size: clamp(2.3rem, 4.5vw, 3.7rem);
-  letter-spacing: -.04em;
+  font-size: clamp(2.3rem, 4.5vw, 3.8rem);
+  letter-spacing: -.045em;
 }
 
 .heading > p:last-child,
@@ -272,60 +335,91 @@ section.content {
 }
 
 .gold-rule {
-  width: 75px;
+  width: 85px;
   height: 2px;
-  margin: 20px auto;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 22px auto;
+  background: linear-gradient(90deg, transparent, #b18b4c, #eedbb1, #b18b4c, transparent);
 }
+
+/* SERVICES */
 
 .services {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  gap: 19px;
 }
 
 .service {
+  position: relative;
   min-height: 205px;
+  overflow: hidden;
   padding: 27px 23px;
-  border: 1px solid rgba(176,138,69,.34);
-  border-radius: 15px;
-  background: rgba(255,254,250,.87);
-  box-shadow: 0 10px 32px rgba(66,49,31,.05);
-  transition: transform .3s, box-shadow .3s;
+  border: 1px solid rgba(255,255,255,.9);
+  outline: 1px solid rgba(177,139,76,.2);
+  border-radius: 17px;
+  background: rgba(255,253,248,.56);
+  backdrop-filter: blur(22px) saturate(155%);
+  -webkit-backdrop-filter: blur(22px) saturate(155%);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.95),
+    0 12px 35px rgba(64,47,25,.065);
+  transition: transform .35s, box-shadow .35s;
+}
+
+.service::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,.42), transparent);
+  pointer-events: none;
 }
 
 .service:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 17px 38px rgba(66,49,31,.1);
+  transform: translateY(-6px);
+  box-shadow:
+    inset 0 1px 2px rgba(255,255,255,1),
+    0 20px 45px rgba(151,111,51,.16);
+  outline-color: rgba(177,139,76,.55);
 }
 
 .icon {
+  position: relative;
   display: grid;
-  width: 44px;
-  height: 44px;
+  width: 45px;
+  height: 45px;
   margin-bottom: 18px;
   place-items: center;
-  border: 1px solid rgba(176,138,69,.42);
+  border: 1px solid rgba(177,139,76,.4);
   border-radius: 50%;
-  background: linear-gradient(140deg, #fffefa, #f0e2c6);
+  background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(232,215,179,.65));
   color: var(--gold);
   font-size: 1.3rem;
+  box-shadow: inset 0 1px 2px white, 0 4px 12px rgba(100,70,32,.05);
 }
 
 .service h3 {
+  position: relative;
   margin: 0 0 9px;
-  font-size: 1.25rem;
+  font-size: 1.22rem;
 }
 
 .service p {
+  position: relative;
   margin: 0;
   color: var(--muted);
-  font-size: .88rem;
+  font-size: .87rem;
 }
 
+/* GALLERY */
+
 .gallery {
-  background: rgba(255,253,248,.45);
-  border-block: 1px solid rgba(176,138,69,.2);
+  background: rgba(255,253,248,.27);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-block: 1px solid rgba(255,255,255,.8);
 }
 
 .gallery-grid {
@@ -336,60 +430,78 @@ section.content {
 
 .gallery-grid img {
   width: 100%;
-  height: 265px;
+  height: 270px;
   object-fit: cover;
-  border: 1px solid rgba(176,138,69,.4);
-  border-radius: 14px;
-  box-shadow: 0 12px 30px rgba(55,41,26,.1);
-  transition: transform .3s;
+  border: 1px solid rgba(255,255,255,.9);
+  outline: 1px solid rgba(177,139,76,.35);
+  border-radius: 15px;
+  box-shadow: 0 13px 35px rgba(60,42,22,.1);
+  transition: transform .35s, box-shadow .35s;
 }
 
 .gallery-grid img:hover {
-  transform: scale(1.025);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(60,42,22,.16);
 }
+
+.gallery-action {
+  margin-top: 35px;
+  text-align: center;
+}
+
+/* ABOUT */
 
 .about {
   display: grid;
   grid-template-columns: .9fr 1.1fr;
   align-items: center;
   gap: 8%;
-  border-block: 1px solid rgba(176,138,69,.27);
-  background: rgba(255,253,248,.65);
+  border-block: 1px solid rgba(255,255,255,.85);
+  background: rgba(255,253,248,.36);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .about-art {
+  position: relative;
   display: grid;
   min-height: 380px;
+  overflow: hidden;
   place-items: center;
-  border: 1px solid rgba(176,138,69,.4);
+  border: 1px solid rgba(255,255,255,.9);
   border-radius: 15px 110px 15px 15px;
   background:
-    linear-gradient(135deg, transparent 0 30%,
-      rgba(255,255,255,.9) 30.2%, transparent 30.7%),
-    linear-gradient(35deg, transparent 0 65%,
-      rgba(176,138,69,.35) 65.2%, transparent 65.8%),
-    linear-gradient(150deg, #fffefa, #e9ddc6, #d7c3a3);
-  box-shadow: 0 20px 50px rgba(66,49,31,.08);
+    linear-gradient(135deg, transparent 0 29%,
+      rgba(255,255,255,.95) 29.2%, transparent 29.7%),
+    linear-gradient(37deg, transparent 0 65%,
+      rgba(177,139,76,.48) 65.2%,
+      rgba(255,255,255,.9) 65.6%, transparent 66%),
+    linear-gradient(145deg, #fffefa, #e9dfce, #d4c09b);
+  box-shadow: 0 22px 60px rgba(63,44,22,.1);
 }
 
 .about-art span {
-  padding: 15px 24px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(255,254,250,.9);
-  font: 500 1.15rem var(--serif);
+  padding: 16px 23px;
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 10px;
+  background: rgba(255,253,248,.68);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  font: 500 1.12rem var(--serif);
   text-align: center;
 }
 
-.about .button {
-  margin-top: 10px;
-}
-
-.about .facebook-link {
+.facebook-link {
   color: var(--gold);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
+
+.about .button {
+  margin-top: 8px;
+}
+
+/* CONTACT DETAILS */
 
 .visit {
   display: grid;
@@ -401,18 +513,18 @@ section.content {
 .details {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 25px 28px;
+  gap: 26px 28px;
 }
 
 .item {
   padding-top: 15px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(177,139,76,.35);
 }
 
 .item h3 {
   margin: 0 0 8px;
   font: 700 .77rem var(--sans);
-  letter-spacing: .1em;
+  letter-spacing: .11em;
   text-transform: uppercase;
 }
 
@@ -427,13 +539,15 @@ section.content {
   text-decoration: underline;
 }
 
+/* MAP */
+
 .map {
   height: 300px;
-  margin-top: 27px;
+  margin-top: 28px;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  box-shadow: 0 10px 28px rgba(66,49,31,.07);
+  border: 1px solid rgba(255,255,255,.95);
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(64,45,22,.1);
 }
 
 .map iframe {
@@ -447,35 +561,57 @@ section.content {
   margin-top: 12px;
   color: var(--gold);
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-underline-offset: 4px;
 }
+
+/* FACEBOOK / REVIEWS */
 
 .review-card {
   max-width: 820px;
   margin: 0 auto;
-  padding: 40px 30px;
-  border: 1px solid rgba(176,138,69,.4);
-  border-radius: 16px;
-  background: rgba(255,254,250,.9);
+  padding: 42px 30px;
+  border: 1px solid rgba(255,255,255,.9);
+  outline: 1px solid rgba(177,139,76,.25);
+  border-radius: 18px;
+  background: rgba(255,253,248,.58);
+  backdrop-filter: blur(25px) saturate(150%);
+  -webkit-backdrop-filter: blur(25px) saturate(150%);
   text-align: center;
-  box-shadow: 0 15px 40px rgba(55,41,26,.06);
+  box-shadow:
+    inset 0 1px 2px rgba(255,255,255,.95),
+    0 20px 55px rgba(66,47,25,.08);
 }
 
 .review-card p:not(.eyebrow) {
   color: var(--muted);
 }
 
+/* DARK LUXURY CONTACT BANNER */
+
 .contact {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   margin: 0 7% 80px;
-  padding: 60px 24px;
-  border: 1px solid rgba(223,197,141,.5);
-  border-radius: 18px;
-  background:
-    linear-gradient(125deg, rgba(255,255,255,.04), transparent 40%),
-    #30271f;
+  padding: 65px 25px;
+  border: 1px solid rgba(230,210,168,.65);
+  border-radius: 20px;
+  background: linear-gradient(135deg, #4b3b2c, #282019 80%);
   color: white;
   text-align: center;
-  box-shadow: 0 18px 45px rgba(50,38,25,.16);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.16),
+    0 25px 65px rgba(52,37,20,.18);
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(218,185,119,.24), transparent 55%),
+    linear-gradient(120deg, transparent 30%, rgba(255,255,255,.045), transparent 70%);
 }
 
 .contact .eyebrow {
@@ -487,15 +623,17 @@ section.content {
 }
 
 .contact p:not(.eyebrow) {
-  color: #e8ded0;
+  color: #e9dfd2;
 }
 
 .contact .button {
   margin-top: 12px;
-  border-color: var(--gold-light);
-  background: linear-gradient(135deg, #e6ce9b, #bd9653);
+  background: linear-gradient(135deg, #f0dbac, #bc9654);
   color: #30271f;
+  border-color: #f8e9c9;
 }
+
+/* FOOTER */
 
 footer {
   display: flex;
@@ -503,26 +641,38 @@ footer {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  padding: 27px 7%;
-  border-top: 1px solid var(--line);
+  padding: 28px 7%;
+  border-top: 1px solid rgba(255,255,255,.9);
+  background: rgba(255,253,248,.58);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   color: var(--muted);
   font-size: .82rem;
-  background: rgba(255,253,248,.65);
 }
 
 footer a:hover {
   color: var(--gold);
 }
 
-@media (max-width: 1000px) {
+/* RESPONSIVE */
+
+@media (max-width: 1050px) {
   .services {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  nav {
+    gap: 17px;
+  }
+
+  header {
+    padding-inline: 5%;
   }
 }
 
 @media (max-width: 760px) {
   header {
-    padding: 16px 6%;
+    padding: 15px 6%;
   }
 
   .menu {
@@ -537,10 +687,12 @@ footer a:hover {
     display: none;
     align-items: stretch;
     gap: 0;
-    padding: 10px 6% 22px;
-    border-top: 1px solid var(--line);
-    background: #f8f5ef;
-    box-shadow: 0 12px 20px rgba(50,38,25,.08);
+    padding: 12px 6% 22px;
+    border-bottom: 1px solid rgba(177,139,76,.3);
+    background: rgba(250,248,243,.95);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-shadow: 0 15px 30px rgba(45,33,20,.08);
   }
 
   nav.open {
@@ -548,12 +700,12 @@ footer a:hover {
     flex-direction: column;
   }
 
-  nav a {
+  nav a:not(.button) {
     padding: 12px 0;
   }
 
   nav .button {
-    margin-top: 8px;
+    margin-top: 10px;
   }
 
   .hero,
@@ -563,6 +715,7 @@ footer a:hover {
   }
 
   .hero {
+    gap: 40px;
     padding: 55px 6% 70px;
   }
 
@@ -570,7 +723,7 @@ footer a:hover {
     min-height: 350px;
   }
 
-  section.content {
+  .content {
     padding: 70px 6%;
   }
 
@@ -583,7 +736,7 @@ footer a:hover {
   }
 
   .gallery-grid img {
-    height: 230px;
+    height: 240px;
   }
 
   .contact {
@@ -591,17 +744,22 @@ footer a:hover {
   }
 
   footer {
-    padding: 23px 6%;
+    padding: 24px 6%;
   }
 }
 
 @media (max-width: 480px) {
   .topline {
-    font-size: .62rem;
+    font-size: .59rem;
+    letter-spacing: .13em;
+  }
+
+  .brand {
+    font-size: 1.4rem;
   }
 
   h1 {
-    font-size: 3.05rem;
+    font-size: 3.15rem;
   }
 
   .services,
@@ -610,12 +768,21 @@ footer a:hover {
     grid-template-columns: 1fr;
   }
 
+  .service {
+    min-height: auto;
+    padding: 24px;
+  }
+
   .gallery-grid img {
     height: 300px;
   }
 
-  .service {
-    min-height: auto;
+  .review-card {
+    padding: 32px 20px;
+  }
+
+  .contact {
+    padding: 48px 20px;
   }
 
   footer {
@@ -630,6 +797,7 @@ footer a:hover {
   }
 
   *, *::before, *::after {
+    animation-duration: .01ms !important;
     transition-duration: .01ms !important;
   }
 }
@@ -638,60 +806,138 @@ footer a:hover {
 
 <body>
 
-<div class="topline">
-  Nagelstudio · Bad Bergzabern · Termine nach Vereinbarung
+<!-- GOLD MARBLE BACKGROUND -->
+<div class="marble-bg" aria-hidden="true">
+<svg viewBox="0 0 1440 1100" preserveAspectRatio="xMidYMin slice"
+     xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="goldGradient" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#a77c39"/>
+    <stop offset="24%" stop-color="#e6ca8a"/>
+    <stop offset="45%" stop-color="#b18a4d"/>
+    <stop offset="65%" stop-color="#f3dfac"/>
+    <stop offset="100%" stop-color="#a77c39"/>
+  </linearGradient>
+  <filter id="soften">
+    <feGaussianBlur stdDeviation="2.5"/>
+  </filter>
+  <filter id="fine">
+    <feGaussianBlur stdDeviation=".7"/>
+  </filter>
+</defs>
+
+<!-- Fine grey marble veins -->
+<g class="soft-vein" opacity=".38" stroke-width="2">
+  <path d="M-100 100 C100 180 140 270 300 300 S480 440 600 400 S820 280 960 350 S1200 500 1500 420"/>
+  <path d="M300 300 C270 390 200 450 140 560 S30 740 -50 800"/>
+  <path d="M600 400 C680 500 720 590 700 700 S650 920 760 1150"/>
+  <path d="M960 350 C1030 270 1100 190 1220 140 S1390 70 1500 0"/>
+  <path d="M-100 720 C100 650 250 730 380 680 S620 580 800 650 S1100 790 1500 650"/>
+</g>
+
+<!-- Blurred gold underneath -->
+<g class="gold-vein" filter="url(#soften)" stroke-width="10" opacity=".4">
+  <path d="M-100 100 C100 180 140 270 300 300 S480 440 600 400 S820 280 960 350 S1200 500 1500 420"/>
+  <path d="M300 300 C270 390 200 450 140 560 S30 740 -50 800"/>
+  <path d="M600 400 C680 500 720 590 700 700 S650 920 760 1150"/>
+  <path d="M960 350 C1030 270 1100 190 1220 140 S1390 70 1500 0"/>
+  <path d="M-100 720 C100 650 250 730 380 680 S620 580 800 650 S1100 790 1500 650"/>
+</g>
+
+<!-- Sharp golden veins -->
+<g class="gold-vein" stroke-width="3" opacity=".72">
+  <path d="M-100 100 C100 180 140 270 300 300 S480 440 600 400 S820 280 960 350 S1200 500 1500 420"/>
+  <path d="M300 300 C270 390 200 450 140 560 S30 740 -50 800"/>
+  <path d="M600 400 C680 500 720 590 700 700 S650 920 760 1150"/>
+  <path d="M960 350 C1030 270 1100 190 1220 140 S1390 70 1500 0"/>
+  <path d="M-100 720 C100 650 250 730 380 680 S620 580 800 650 S1100 790 1500 650"/>
+</g>
+
+<!-- Delicate branches -->
+<g class="gold-vein" stroke-width="1.8" opacity=".6">
+  <path d="M300 300 C240 270 200 225 165 165"/>
+  <path d="M300 300 C360 240 385 190 390 115"/>
+  <path d="M230 440 C300 450 340 490 365 545"/>
+  <path d="M140 560 C185 570 225 610 245 655"/>
+  <path d="M600 400 C550 335 530 290 535 230"/>
+  <path d="M600 400 C665 365 705 330 735 270"/>
+  <path d="M700 700 C630 740 590 795 570 855"/>
+  <path d="M700 700 C760 750 800 790 825 850"/>
+  <path d="M960 350 C910 400 895 460 905 510"/>
+  <path d="M1220 140 C1170 115 1135 80 1115 40"/>
+  <path d="M380 680 C420 620 455 600 500 585"/>
+  <path d="M800 650 C855 600 900 575 955 570"/>
+  <path d="M800 650 C830 710 850 755 855 810"/>
+</g>
+
+<!-- Very fine hairline detail -->
+<g class="gold-vein" stroke-width=".8" opacity=".5">
+  <path d="M-60 110 C120 200 150 280 295 310 S490 450 605 410 S825 290 970 360 S1220 510 1500 430"/>
+  <path d="M295 310 C265 400 195 460 130 575 S20 750 -70 820"/>
+  <path d="M610 410 C690 510 730 600 710 710 S660 930 775 1160"/>
+  <path d="M970 360 C1040 280 1110 200 1230 150 S1400 80 1510 10"/>
+</g>
+</svg>
 </div>
 
+<!-- TOPLINE -->
+<div class="topline">
+  ✧ Nagelstudio · Bad Bergzabern · Termine nach Vereinbarung ✧
+</div>
+
+<!-- HEADER -->
 <header>
   <a class="brand" href="#start">
     Nagelkunst
     <small>Rebecca Werghemi</small>
   </a>
 
-  <button class="menu" aria-label="Menü öffnen"
-          aria-expanded="false" type="button">☰</button>
+  <button class="menu" type="button"
+          aria-label="Menü öffnen" aria-expanded="false">☰</button>
 
   <nav aria-label="Hauptnavigation">
     <a href="#leistungen">Leistungen</a>
     <a href="#galerie">Galerie</a>
     <a href="#ueber-mich">Über mich</a>
-    <a href="#kontakt">Kontakt &amp; Anfahrt</a>
+    <a href="#kontakt">Kontakt</a>
     <a class="button" href="tel:+491734209777">Termin anfragen</a>
   </nav>
 </header>
 
 <main>
 
+<!-- HERO -->
 <section class="hero" id="start">
   <div>
-    <p class="eyebrow">Nagelstudio · Bad Bergzabern</p>
+    <p class="eyebrow">Willkommen bei Nagelkunst</p>
     <h1>Deine Nägel.<br><em>Dein Stil.</em></h1>
     <p class="lead">
-      Willkommen bei Nagelkunst. Entdecke elegante Nageldesigns,
-      traumhafte Farben und liebevolle Details.
-      Gönn deinen Nägeln einen besonderen Look
-      und lass dich individuell verwöhnen.
+      Entdecke die Welt der schönen Nägel.
+      Von zeitloser Eleganz bis zu kreativer Nail Art –
+      bei Nagelkunst in Bad Bergzabern stehen
+      deine Wünsche und dein persönlicher Stil im Mittelpunkt.
     </p>
     <a class="button" href="tel:+491734209777">
-      Telefonisch Termin anfragen
+      ♡ &nbsp; Termin telefonisch anfragen
     </a>
   </div>
 
   <div class="hero-art" role="img"
-       aria-label="Elegante Illustration in Creme und Gold">
+       aria-label="Elegante Creme- und Goldoptik">
     <span>Schönheit bis ins kleinste Detail</span>
   </div>
 </section>
 
+<!-- SERVICES -->
 <section class="content" id="leistungen">
   <div class="heading">
-    <p class="eyebrow">Mit Liebe zum Detail</p>
+    <p class="eyebrow">Deine Schönheit im Mittelpunkt</p>
     <h2>Unsere Leistungen</h2>
     <div class="gold-rule"></div>
     <p>
-      Ob natürlich, elegant oder auffällig –
-      gemeinsam finden wir das passende Nageldesign
-      für deinen persönlichen Stil.
+      Ob natürlich, dezent oder glamourös –
+      wir gestalten deine Nägel passend
+      zu deinem ganz persönlichen Stil.
     </p>
   </div>
 
@@ -701,8 +947,8 @@ footer a:hover {
       <span class="icon">✧</span>
       <h3>Gelnägel</h3>
       <p>
-        Wunderschöne, glänzende Nägel mit individueller
-        Form und deinem Lieblingsdesign.
+        Elegante Nagelmodellage mit glänzendem Finish,
+        wunderschönen Farben und individuellen Formen.
       </p>
     </article>
 
@@ -710,8 +956,8 @@ footer a:hover {
       <span class="icon">✦</span>
       <h3>Acrylnägel</h3>
       <p>
-        Individuelle Nagelmodellage mit vielfältigen
-        Gestaltungsmöglichkeiten.
+        Individuelle Modellage und kreative
+        Gestaltungsmöglichkeiten für deinen Wunschlook.
       </p>
     </article>
 
@@ -719,8 +965,8 @@ footer a:hover {
       <span class="icon">◇</span>
       <h3>Nail Art</h3>
       <p>
-        Kreative Muster, elegante Verzierungen,
-        Glitzer und einzigartige Designs.
+        Kreative Designs, Glitzer, feine Muster,
+        elegante Details und besondere Akzente.
       </p>
     </article>
 
@@ -728,8 +974,8 @@ footer a:hover {
       <span class="icon">♡</span>
       <h3>Maniküre</h3>
       <p>
-        Liebevolle Pflege und ein gepflegtes
-        Erscheinungsbild für deine Hände.
+        Gepflegte Hände und Nägel mit liebevoller
+        Nagelpflege und einem schönen Finish.
       </p>
     </article>
 
@@ -737,8 +983,8 @@ footer a:hover {
       <span class="icon">✿</span>
       <h3>Nagelverlängerung</h3>
       <p>
-        Die gewünschte Länge und Form
-        für deinen persönlichen Look.
+        Individuelle Länge und Form –
+        ganz nach deinen Vorstellungen.
       </p>
     </article>
 
@@ -746,8 +992,8 @@ footer a:hover {
       <span class="icon">✧</span>
       <h3>Naturnagelverstärkung</h3>
       <p>
-        Für einen gepflegten Look und
-        eine verstärkte natürliche Nagelplatte.
+        Eine gepflegte Optik und Verstärkung
+        deiner natürlichen Nägel.
       </p>
     </article>
 
@@ -764,44 +1010,49 @@ footer a:hover {
       <span class="icon">♡</span>
       <h3>Nagelreparatur</h3>
       <p>
-        Ausbesserung beschädigter Nägel
-        im Rahmen der angebotenen Behandlungen.
+        Ausbesserung und Nachbearbeitung
+        beschädigter Nägel.
       </p>
     </article>
 
   </div>
 </section>
 
+<!-- GALLERY -->
 <section class="content gallery" id="galerie">
   <div class="heading">
-    <p class="eyebrow">Inspiration &amp; Kreativität</p>
-    <h2>Nageldesign &amp; Nail Art</h2>
+    <p class="eyebrow">Inspiration & Kreativität</p>
+    <h2>Nageldesign & Nail Art</h2>
     <div class="gold-rule"></div>
     <p>
-      Entdecke verschiedene Nageldesigns
-      und lass dich für deinen nächsten Termin inspirieren.
+      Lass dich inspirieren und entdecke
+      individuelle Nageldesigns aus dem Studio.
     </p>
   </div>
 
   <div class="gallery-grid">
-    <img src="https://scontent-fra3-1.xx.fbcdn.net/v/t39.30808-6/480556639_1167659351386715_6875234738237980362_n.jpg?stp=dst-jpg_tt6&cstp=mx1200x1000&ctp=s1200x1000&_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=I_tYYQk_sEQQ7kNvwEkqFrX&_nc_oc=Adon4Y_3HEDw11NjpqaIYm36y_ebLE_o1mwfv8JtKdTyUCBAWAGCYaIu-_rMLPQBa4WiO2OS6E-EZIG8gz_rOxeD&_nc_zt=23&_nc_ht=scontent-fra3-1.xx&_nc_gid=fJI9-LpZ6vFstV99dwxjmQ&_nc_ss=7b289&oh=00_AQPtTNwkdhrAaxylXSur0UndSs0J5OyPM_5I6RRqPYXM5w&oe=6AC6743B"
-         alt="Nageldesign aus der Facebook-Galerie"
-         loading="lazy">
+    <img
+      src="https://scontent-fra3-1.xx.fbcdn.net/v/t39.30808-6/480556639_1167659351386715_6875234738237980362_n.jpg?stp=dst-jpg_tt6&cstp=mx1200x1000&ctp=s1200x1000&_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=I_tYYQk_sEQQ7kNvwEkqFrX&_nc_oc=Adon4Y_3HEDw11NjpqaIYm36y_ebLE_o1mwfv8JtKdTyUCBAWAGCYaIu-_rMLPQBa4WiO2OS6E-EZIG8gz_rOxeD&_nc_zt=23&_nc_ht=scontent-fra3-1.xx&_nc_gid=fJI9-LpZ6vFstV99dwxjmQ&_nc_ss=7b289&oh=00_AQPtTNwkdhrAaxylXSur0UndSs0J5OyPM_5I6RRqPYXM5w&oe=6AC6743B"
+      alt="Nageldesign aus dem Studio"
+      loading="lazy">
 
-    <img src="https://scontent-fra5-1.xx.fbcdn.net/v/t39.30808-6/485390977_1187771492708834_8537834848887262940_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x2048&ctp=s851x315&_nc_cat=110&ccb=1-7&_nc_sid=8a6525&_nc_ohc=xB7F_sRxuyMQ7kNvwGmQ7kG&_nc_oc=Adp3zQF3HqH4MiGomr_TxIep426102kRPoy0fXB5QvBn4J9xgvk0BfobpEqW8vJPAJjfTVqZ13ztIoQgxptWDy-u&_nc_zt=23&_nc_ht=scontent-fra5-1.xx&_nc_gid=fJI9-LpZ6vFstV99dwxjmQ&_nc_ss=7b289&oh=00_AQOLRPzB5VEkUuItYZPGZfLfEcuauxs9G7IsTbGPPrMMnQ&oe=6AC67AA3"
-         alt="Nail Art aus der Facebook-Galerie"
-         loading="lazy">
+    <img
+      src="https://scontent-fra5-1.xx.fbcdn.net/v/t39.30808-6/485390977_1187771492708834_8537834848887262940_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x2048&ctp=s851x315&_nc_cat=110&ccb=1-7&_nc_sid=8a6525&_nc_ohc=xB7F_sRxuyMQ7kNvwGmQ7kG&_nc_oc=Adp3zQF3HqH4MiGomr_TxIep426102kRPoy0fXB5QvBn4J9xgvk0BfobpEqW8vJPAJjfTVqZ13ztIoQgxptWDy-u&_nc_zt=23&_nc_ht=scontent-fra5-1.xx&_nc_gid=fJI9-LpZ6vFstV99dwxjmQ&_nc_ss=7b289&oh=00_AQOLRPzB5VEkUuItYZPGZfLfEcuauxs9G7IsTbGPPrMMnQ&oe=6AC67AA3"
+      alt="Nail Art aus dem Studio"
+      loading="lazy">
 
-    <img src="https://scontent-fra3-1.xx.fbcdn.net/v/t39.30808-6/484519964_1185615672924416_5167176567481559649_n.jpg?stp=c0.185.1265.1265a_dst-jpg_tt6&cstp=mx1265x1265&ctp=s851x315&_nc_cat=105&ccb=1-7&_nc_sid=8a6525&_nc_ohc=yAn5ZzoaXLUQ7kNvwGMubz2&_nc_oc=AdrfQbd3miUfQcCbxd2ov8FdpuJpSDp_9dqbHfysH-DBLSIyCNMobIHg9F4jlYrE0DEgjVBuNvJvTLU3Y64xiV7P&_nc_zt=23&_nc_ht=scontent-fra3-1.xx&_nc_gid=fJI9-LpZ6vFstV99dwxjmQ&_nc_ss=7b289&oh=00_AQPICCLmggW7Ie02xAAr5zHwPbkNewb6ilBTbjjPPesMlQ&oe=6AC69DE2"
-         alt="Nageldesign aus der Facebook-Galerie"
-         loading="lazy">
+    <img
+      src="https://scontent-fra3-1.xx.fbcdn.net/v/t39.30808-6/484519964_1185615672924416_5167176567481559649_n.jpg?stp=c0.185.1265.1265a_dst-jpg_tt6&cstp=mx1265x1265&ctp=s851x315&_nc_cat=105&ccb=1-7&_nc_sid=8a6525&_nc_ohc=yAn5ZzoaXLUQ7kNvwGMubz2&_nc_oc=AdrfQbd3miUfQcCbxd2ov8FdpuJpSDp_9dqbHfysH-DBLSIyCNMobIHg9F4jlYrE0DEgjVBuNvJvTLU3Y64xiV7P&_nc_zt=23&_nc_ht=scontent-fra3-1.xx&_nc_gid=fJI9-LpZ6vFstV99dwxjmQ&_nc_ss=7b289&oh=00_AQPICCLmggW7Ie02xAAr5zHwPbkNewb6ilBTbjjPPesMlQ&oe=6AC69DE2"
+      alt="Individuelles Nageldesign"
+      loading="lazy">
 
-    <img src="https://scontent-fra3-1.xx.fbcdn.net/v/t39.30808-6/481143909_1171204564365527_2635268736612105008_n.jpg?stp=c0.132.1200.1200a_dst-jpg_tt6&cstp=mx1200x1200&ctp=s851x315&_nc_cat=101&ccb=1-7&_nc_sid=8a6525&_nc_ohc=eRCSWnTyf-QQ7kNvwHO9s5P&_nc_oc=AdoyDa5PSnSLez0HQSL3oLcY6AtYC-KN--xNWGYvGQdo2XZbXM8OW90jbJC5Bstotu1RettOfXUqt-4pNfnPliIp&_nc_zt=23&_nc_ht=scontent-fra3-1.xx&_nc_gid=fJI9-LpZ6vFstV99dwxjmQ&_nc_ss=7b289&oh=00_AQOCR2SCrvvApJDIayDi9GsUK6FMhS8nvydDzG7hZbubJQ&oe=6AC680DF"
-         alt="Nagelkunst aus der Facebook-Galerie"
-         loading="lazy">
+    <img
+      src="https://scontent-fra3-1.xx.fbcdn.net/v/t39.30808-6/481143909_1171204564365527_2635268736612105008_n.jpg?stp=c0.132.1200.1200a_dst-jpg_tt6&cstp=mx1200x1200&ctp=s851x315&_nc_cat=101&ccb=1-7&_nc_sid=8a6525&_nc_ohc=eRCSWnTyf-QQ7kNvwHO9s5P&_nc_oc=AdoyDa5PSnSLez0HQSL3oLcY6AtYC-KN--xNWGYvGQdo2XZbXM8OW90jbJC5Bstotu1RettOfXUqt-4pNfnPliIp&_nc_zt=23&_nc_ht=scontent-fra3-1.xx&_nc_gid=fJI9-LpZ6vFstV99dwxjmQ&_nc_ss=7b289&oh=00_AQOCR2SCrvvApJDIayDi9GsUK6FMhS8nvydDzG7hZbubJQ&oe=6AC680DF"
+      alt="Nagelkunst und Nail Art"
+      loading="lazy">
   </div>
 
-  <div class="heading" style="margin:35px auto 0">
+  <div class="gallery-action">
     <a class="button"
        href="https://www.facebook.com/Nagelkunst.by.Rebecca.Schab/"
        target="_blank" rel="noopener noreferrer">
@@ -810,28 +1061,35 @@ footer a:hover {
   </div>
 </section>
 
+<!-- ABOUT -->
 <section class="content about" id="ueber-mich">
   <div class="about-art" role="img"
-       aria-label="Dekorative Illustration in Creme und Gold">
+       aria-label="Elegante Marmoroptik mit goldenen Details">
     <span>Nagelkunst mit persönlicher Note</span>
   </div>
 
   <div>
     <p class="eyebrow">Schön, dass du da bist</p>
     <h2>Rebecca Werghemi</h2>
+
     <p>
-      Herzlich willkommen bei Nagelkunst in Bad Bergzabern.
-      Hier dreht sich alles um schöne Nägel,
-      individuelle Gestaltung und gepflegte Hände.
+      Herzlich willkommen bei Nagelkunst
+      in Bad Bergzabern.
     </p>
+
     <p>
-      Ob dezente Eleganz, klassische Farben oder
-      kreative Nail Art – entdecke die vielfältigen
-      Möglichkeiten und finde deinen ganz persönlichen Stil.
+      Bei mir dreht sich alles um schöne Nägel,
+      individuelle Designs und gepflegte Hände.
+      Ob zeitlose Eleganz, dezente Farben
+      oder kreative Nail Art – entdecke
+      die vielfältigen Möglichkeiten.
     </p>
+
     <p>
-      Ich freue mich darauf, dich im Studio begrüßen zu dürfen.
+      Ich freue mich darauf, dich im Studio
+      begrüßen zu dürfen.
     </p>
+
     <p>
       <a class="facebook-link"
          href="https://www.facebook.com/Nagelkunst.by.Rebecca.Schab/"
@@ -839,25 +1097,31 @@ footer a:hover {
         Fotos und Neuigkeiten auf Facebook ansehen
       </a>
     </p>
+
     <a class="button" href="tel:+491734209777">
-      0173 4209777 anrufen
+      ♡ &nbsp; 0173 4209777 anrufen
     </a>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section class="content visit" id="kontakt">
   <div>
     <p class="eyebrow">Besuch im Studio</p>
-    <h2>Kontakt &amp; Anfahrt</h2>
+    <h2>Kontakt & Anfahrt</h2>
     <p class="lead">
-      Ich freue mich auf deinen Besuch bei Nagelkunst
+      Das Nagelstudio Nagelkunst befindet sich
       in der Marktstraße in Bad Bergzabern.
-      Vereinbare deinen Wunschtermin einfach telefonisch.
+      Vereinbare deinen Wunschtermin telefonisch.
     </p>
+    <a class="button" href="tel:+491734209777">
+      Jetzt anrufen
+    </a>
   </div>
 
   <div>
     <div class="details">
+
       <div class="item">
         <h3>Adresse</h3>
         <p>
@@ -869,7 +1133,9 @@ footer a:hover {
       <div class="item">
         <h3>Telefon</h3>
         <p>
-          <a href="tel:+491734209777">0173 4209777</a>
+          <a href="tel:+491734209777">
+            0173 4209777
+          </a>
         </p>
       </div>
 
@@ -889,12 +1155,13 @@ footer a:hover {
           geschlossen
         </p>
       </div>
+
     </div>
 
     <div class="map">
       <iframe
         src="https://maps.google.com/maps?q=Marktstra%C3%9Fe%2044%2C%2076887%20Bad%20Bergzabern&output=embed"
-        title="Karte zum Nagelstudio Nagelkunst"
+        title="Standort Nagelkunst in Bad Bergzabern"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
         allowfullscreen>
@@ -904,19 +1171,20 @@ footer a:hover {
     <a class="map-link"
        href="https://www.google.com/maps/search/?api=1&query=Marktstra%C3%9Fe+44%2C+76887+Bad+Bergzabern"
        target="_blank" rel="noopener noreferrer">
-      Route in Google Maps öffnen
+      Route in Google Maps öffnen →
     </a>
   </div>
 </section>
 
+<!-- FACEBOOK -->
 <section class="content">
   <div class="review-card">
-    <p class="eyebrow">Aktuelles &amp; Inspiration</p>
+    <p class="eyebrow">Aktuelles & Inspiration</p>
     <h2>Schau auf Facebook vorbei</h2>
     <div class="gold-rule"></div>
     <p>
-      Auf meiner Facebook-Seite findest du weitere
-      Nageldesigns, aktuelle Bilder und Neuigkeiten
+      Entdecke weitere Nageldesigns,
+      aktuelle Bilder und Neuigkeiten
       rund um Nagelkunst.
     </p>
     <a class="button"
@@ -927,6 +1195,7 @@ footer a:hover {
   </div>
 </section>
 
+<!-- FINAL CALL TO ACTION -->
 <section class="contact">
   <p class="eyebrow">Dein Termin beginnt mit einem Anruf</p>
   <h2>Lust auf schöne Nägel?</h2>
@@ -935,12 +1204,13 @@ footer a:hover {
     Ich freue mich auf dich!
   </p>
   <a class="button" href="tel:+491734209777">
-    0173 4209777
+    ♡ &nbsp; 0173 4209777
   </a>
 </section>
 
 </main>
 
+<!-- FOOTER -->
 <footer>
   <a class="brand" href="#start">
     Nagelkunst
@@ -949,7 +1219,7 @@ footer a:hover {
 
   <span>© <span id="year"></span> Nagelkunst</span>
 
-  <a href="#kontakt">Kontakt &amp; Öffnungszeiten</a>
+  <a href="#kontakt">Kontakt & Öffnungszeiten</a>
 </footer>
 
 <script>
@@ -958,6 +1228,7 @@ const nav = document.querySelector("nav");
 
 menuButton.addEventListener("click", () => {
   const open = nav.classList.toggle("open");
+
   menuButton.setAttribute("aria-expanded", String(open));
   menuButton.setAttribute(
     "aria-label",
@@ -981,3 +1252,4 @@ document.querySelector("#year").textContent =
 
 </body>
 </html>
+
